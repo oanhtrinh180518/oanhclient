@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class AuthService {
-  BASE_PATH = 'http://localhost:8080';
+  BASE_PATH = 'http://localhost:8069';
   USER_NAME_SESSION = 'username_session';
 
   public username!: String;
@@ -15,7 +15,7 @@ export class AuthService {
 
   login(username: string, password: string) {
     var params = new HttpParams()
-      .set('username', username)
+      .set('userId', username)
       .set('password', password);
     return this.http.post<Response>(this.BASE_PATH + '/auth/login', params, {
       observe: 'response'
