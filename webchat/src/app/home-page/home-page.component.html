@@ -6,17 +6,24 @@
     <button (click)="onSubmit()">Demo</button>
     <h1>{{ this.listFriend }}</h1>-->
     <div>Friend</div>
-    <select>
+   <!-- <select>
       <option *ngFor="let dealer of listFriend">
         {{ dealer.userId }}
       </option>
     </select>
+    -->
     <div>User</div>
-    <select>
+    <!--<select>
       <option *ngFor="let dealer of users">
         {{ dealer.username }}
       </option>
     </select>
+-->
+    <div class="card">
+      <ul>
+        <li *ngFor="let u of listFriend">{{ u.userId }}</li>
+      </ul>
+    </div>
     <!--
 
 
@@ -29,7 +36,6 @@
    -->
     <div>
       <button id="dangxuat" [routerLink]="['/login']">Đăng xuất</button>
-      <h1>{{ a }}</h1>
     </div>
   </body>
 </html>
