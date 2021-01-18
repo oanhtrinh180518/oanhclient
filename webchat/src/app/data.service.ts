@@ -18,7 +18,7 @@ export interface Conversation{
   providedIn: 'root',
 })
 export class DataService {
-  BASE_PATH = 'http://localhost:8069';
+  BASE_PATH = 'http://localhost:8080';
 
   constructor(private http: HttpClient) {}
 
