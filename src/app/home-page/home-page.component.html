@@ -1,0 +1,35 @@
+<html>
+  <head></head>
+  <body>
+    <button (click)="getListFriend()">Get list friends</button>
+    <button (click)="getListUsers()">Get list user</button>
+    <button (click)="onSubmit()">Demo</button>
+    <h1>{{ this.listFriend }}</h1>
+    <div >Friend </div>
+    <select>
+              <option *ngFor="let dealer of listFriend">
+                            {{dealer.userId}}
+                          </option>
+                        </select>
+                          <div >User </div>
+    <select>
+              <option *ngFor="let dealer of users">
+                            {{dealer.userId}}
+                          </option>
+                        </select>
+    <!--
+
+
+    <div class="user"><app-my-user></app-my-user></div>
+    <div class="search"> <app-search></app-search></div>
+
+    <div class="list-friends"><app-list-friends></app-list-friends></div>
+    <div class="name-friend"></div>
+    <div class="task-details"><app-task-detail></app-task-detail></div>
+   -->
+    <div>
+      <button id="dangxuat" [routerLink]="['/login']">Đăng xuất</button>
+      <h1>{{ a }}</h1>
+    </div>
+  </body>
+</html>

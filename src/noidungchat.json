@@ -1,0 +1,8 @@
+{
+      "chat1" : [
+        [ "user1" ,"Hello"],
+        ["user2","Hi"],
+        ["user1","What plans for today?"],
+["user2","Nothing much. How about you?"]
+      ]
+  }

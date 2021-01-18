@@ -1,0 +1,38 @@
+<div class="container col-lg-6">
+  <h1 class="text-center">Register</h1>
+  <div class="card">
+    <div class="card-body">
+      <form
+        [formGroup]="registerForm"
+        class="form-group"
+        (ngSubmit)="register()"
+      >
+        <div class="form-group">
+          <label>Username</label>
+          <input formControlName="username" class="form-control" type="text" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input
+            formControlName="password"
+            class="form-control"
+            type="password"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-success">Register</button>
+        <button class="btn float-right" (click)="onBack()">Back</button>
+      </form>
+    </div>
+  </div>
+</div>
+ <!--
+
+        <div class="form-group">
+          <label>Role</label>
+          <select formControlName="role" class="form-control">
+            <option value="ADMIN">Administrator</option>
+            <option value="USER">User</option>
+          </select>
+        </div>
+        -->

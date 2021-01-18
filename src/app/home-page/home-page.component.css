@@ -1,0 +1,54 @@
+html,
+body {
+  height: 100%;
+
+}
+div {
+  box-sizing: border-box;
+  padding: 10px;
+}
+.user{
+  text-align: center;
+  height: 50px;
+  width: 300px;
+  background-color: aqua;
+  margin-left: 100px;
+}
+.search{
+  text-align: left;
+  height: 50px;
+  width: 300px;
+  background-color: burlywood;
+  margin-left: 100px;
+
+}
+.list-friends{
+  text-align: left;
+  height: 500px;
+  width: 300px;
+  background-color: chartreuse;
+  margin-left: 100px;
+}
+.name-friend{
+  text-align: left;
+  height: 50px;
+  width: 800px;
+  background-color: crimson;
+  margin-top: -600px;
+  margin-left: 400px;
+}
+.task-details{
+  text-align: center;
+  height: 550px;
+  width: 800px;
+  background-color: gold;
+  margin-top:00px ;
+  margin-left: 400px;
+}
+#dangxuat{
+  text-align: center;
+  height: 50px;
+  width: 100px;
+  margin-top:0px ;
+  margin-left: 1080px;
+}

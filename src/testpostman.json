@@ -1,0 +1,119 @@
+{
+  "info": {
+    "_postman_id": "77bfb41a-580b-4397-8574-c052a6fe5a16",
+    "name": "webChatAPI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "register",
+      "id": "13db07d6-924c-452f-805b-435f30d6e286",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"userId\":\"quang\",\r\n    \"password\":1234\r\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "http://localhost:8080/auth/register"
+      },
+      "response": []
+    },
+    {
+      "name": "login",
+      "id": "f64c85c2-e07f-4543-95d0-06fc073fa856",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            { "key": "username", "value": "quang", "type": "text" },
+            { "key": "password", "value": "123", "type": "text" }
+          ],
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "http://localhost:8080/auth/login"
+      },
+      "response": []
+    },
+    {
+      "name": "getConversation",
+      "id": "ec504838-7d56-4437-a9b1-ef044a505df5",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": {
+            "username": "quang",
+            "password": "1234",
+            "showPassword": false
+          }
+        },
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:8080/user/getConversation/nam"
+      },
+      "response": []
+    },
+    {
+      "name": "createSingleConversation",
+      "id": "6c89c2ae-c522-46fd-bdd4-bd045eff1b69",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": {
+            "username": "quang",
+            "password": "1234",
+            "showPassword": false
+          }
+        },
+        "method": "POST",
+        "header": [],
+        "url": "http://localhost:8080/user/createSingleConversation/nam/quang"
+      },
+      "response": []
+    },
+    {
+      "name": "sendMessage",
+      "id": "41e38b98-af5a-47ba-bc0e-1eaef5f00a57",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": {
+            "username": "quang",
+            "password": "1234",
+            "showPassword": false
+          }
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"content\":\"hi\",\r\n    \"conversationId\":2,\r\n    \"userId\":\"nam\"   \r\n}",
+          "options": { "raw": { "language": "json" } }
+        },
+        "url": "http://localhost:8080/user/sendMessage"
+      },
+      "response": []
+    },
+    {
+      "name": "getContentConversation",
+      "id": "1d0ff3d6-1ba7-47cf-b505-a5a7dc2f962f",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": {
+            "username": "quang",
+            "password": "1234",
+            "showPassword": false
+          }
+        },
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:8080/user/getContentConversation/2"
+      },
+      "response": []
+    }
+  ]
+}
