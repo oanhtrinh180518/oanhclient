@@ -5,18 +5,18 @@
     <button (click)="getListUsers()">Get list user</button>
     <button (click)="onSubmit()">Demo</button>
     <h1>{{ this.listFriend }}</h1>
-    <div >Friend </div>
+    <div>Friend</div>
     <select>
-              <option *ngFor="let dealer of listFriend">
-                            {{dealer.userId}}
-                          </option>
-                        </select>
-                          <div >User </div>
+      <option *ngFor="let dealer of listFriend">
+        {{ dealer.userId }}
+      </option>
+    </select>
+    <div>User</div>
     <select>
-              <option *ngFor="let dealer of users">
-                            {{dealer.userId}}
-                          </option>
-                        </select>
+      <option *ngFor="let dealer of users">
+        {{ dealer.username }}
+      </option>
+    </select>
     <!--
 
 
