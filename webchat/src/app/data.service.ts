@@ -32,13 +32,11 @@ export class DataService {
   getFriendList(userId: any): Observable<Array<Conversation>> {
     return this.http.get<Array<Conversation>>(this.BASE_PATH+"/user/getConversation/"+userId);//
   }
-  /*
-   getFriendList(username: string): Observable<Array<Conversation>> {
-    return this.http.get<Array<Conversation>>(`${this.BASE_PATH}/user/getConversation/${username}`);
-  }
-  */
+  getContentConversation(idConversatioin: Number):Observable<Conversation> {
+    return this.http.get<Conversation>(this.BASE_PATH+"/user/getContentConversation/"+idConversatioin);
+    }
 
-// component get user đâu? build lại back di mở postman test cái login trc đi
+
 
 
 }

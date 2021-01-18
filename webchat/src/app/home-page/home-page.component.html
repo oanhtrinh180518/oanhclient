@@ -5,10 +5,13 @@
     <div class="card">
       <ul>
         <li *ngFor="let u of listFriend">
-          <button id='idConvertation'>{{ u.userId }}:{{ u.content }}</button>
+          <button #idConvertation >{{ u.userId }}:{{ u.content }}</button>
         </li>
       </ul>
     </div>
+    <div>
+    </div>
+
 
     <!--
     <div class="user"><app-my-user></app-my-user></div>

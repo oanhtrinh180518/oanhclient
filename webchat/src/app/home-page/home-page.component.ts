@@ -17,12 +17,13 @@ export class HomePageComponent implements OnInit {
 
   listFriend!: Conversation[];
   users!: User[];
+  currentConversation!: Conversation;
   ngOnInit(): void {
     this.getListFriend(); // nay m goi  ham  nay đúng mà
     this.getListUsers(); //gọi hàm này mới đúng- ko, t muốn hiển thị danh sách bạn bè của user mà
+    //this.getConversationContent(this.listFriend[0].conversationId)
   }
-  b = this.authService.getLoggedInUserName();
-  a = this.dataService.getFriendList(this.authService.getLoggedInUserName());
+
   getListFriend() {
     this.dataService
       .getFriendList(this.authService.getLoggedInUserName())
@@ -35,7 +36,8 @@ export class HomePageComponent implements OnInit {
       .subscribe((data: Array<User>) => (this.users = data));
     console.log('sontestUser', this.users);
   }
-  onSubmit() {
-    alert('Ahihi');
+  getConversationContent(idConversatioin: Number){
+    this.dataService.getContentConversation(idConversatioin)
+    .subscribe((data: Conversation ) => this.currentConversation = data)
   }
 }
