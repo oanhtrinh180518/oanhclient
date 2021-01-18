@@ -3,17 +3,26 @@
   <body>
     ListFriend
     <div class="card">
+      <table>
+        <ul>
+          <td *ngFor="let u of listFriend">
+            <button>
+              {{ u.userId }}:{{ u.content }} {{ u.conversationId }}
+            </button>
+          </td>
+        </ul>
+      </table>
+    </div>
+    <div>
+      Chi tiết cuộc trò chuyện
       <ul>
-        <li *ngFor="let u of listFriend">
-          <button  >
-          {{ u.userId }}:{{ u.content }}
-          {{u.conversationId}}</button>
+        <li *ngFor="let u of currentConversation">
+          <button value=u.conversationId>{{ u.userId }}:{{ u.content }}</button>
+
+
         </li>
       </ul>
     </div>
-    <div>
-    </div>
-
 
     <!--
     <div class="user"><app-my-user></app-my-user></div>

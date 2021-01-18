@@ -30,10 +30,10 @@ export class DataService {
     return this.http.get<User>(this.BASE_PATH+"/user/get/"+username);
     }
   getFriendList(userId: any): Observable<Array<Conversation>> {
-    return this.http.get<Array<Conversation>>(this.BASE_PATH+"/user/getConversation/"+userId);//
+    return this.http.get<Array<Conversation>>(this.BASE_PATH+"/user/getConversation/"+userId);
   }
-  getContentConversation(idConversatioin: Number):Observable<Conversation> {
-    return this.http.get<Conversation>(this.BASE_PATH+"/user/getContentConversation/"+idConversatioin);
+  getContentConversation(idConversatioin: Number):Observable<Array<Conversation>> {
+    return this.http.get<Array<Conversation>>(this.BASE_PATH+"/user/getContentConversation/"+idConversatioin);
     }
 
 

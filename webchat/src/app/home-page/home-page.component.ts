@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
 
-
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
@@ -20,13 +19,14 @@ export class HomePageComponent implements OnInit {
 
   listFriend!: Conversation[];
   users!: User[];
-  currentConversation!: Conversation;
-
+  currentConversation!: Conversation[];
+  idConversation!: Number;
 
   ngOnInit(): void {
     this.getListFriend(); // nay m goi  ham  nay đúng mà
-    this.getListUsers(); //gọi hàm này mới đúng- ko, t muốn hiển thị danh sách bạn bè của user mà
-    //this.getConversationContent(this.listFriend[0].conversationId)
+    //this.getListUsers(); //gọi hàm này mới đúng- ko, t muốn hiển thị danh sách bạn bè của user mà
+    // this.getConversationContent(this.idConversation);
+    this.getConversationContent(this.idConversation);
   }
 
   getListFriend() {
@@ -41,8 +41,13 @@ export class HomePageComponent implements OnInit {
       .subscribe((data: Array<User>) => (this.users = data));
     console.log('sontestUser', this.users);
   }
-  getConversationContent(idConversatioin: Number){
-    this.dataService.getContentConversation(idConversatioin)
-    .subscribe((data: Conversation ) => this.currentConversation = data)
+
+  getConversationContent(idConversation: Number) {
+    this.dataService
+      .getContentConversation(idConversation)
+      .subscribe(
+        (data: Array<Conversation>) => (this.currentConversation = data)
+      );
+    console.log('oanhtest', this.currentConversation);
   }
 }
