@@ -2,6 +2,8 @@ import { AuthService } from './../auth.service';
 import { DataService, Conversation, User } from './../data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
+
 
 @Component({
   selector: 'app-home-page',
@@ -10,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class HomePageComponent implements OnInit {
   constructor(
+    private fb: FormBuilder,
     private dataService: DataService,
     private authService: AuthService,
     private router: Router
@@ -18,6 +21,8 @@ export class HomePageComponent implements OnInit {
   listFriend!: Conversation[];
   users!: User[];
   currentConversation!: Conversation;
+
+
   ngOnInit(): void {
     this.getListFriend(); // nay m goi  ham  nay đúng mà
     this.getListUsers(); //gọi hàm này mới đúng- ko, t muốn hiển thị danh sách bạn bè của user mà

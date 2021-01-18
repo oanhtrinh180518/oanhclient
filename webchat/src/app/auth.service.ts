@@ -24,7 +24,7 @@ export class AuthService {
   register(user: String, pass: String) {
     return this.http.post<Response>(
       this.BASE_PATH + '/auth/register',
-      { username: user, password: pass },
+      { userId: user, password: pass },
       { observe: 'response' }
     );
   }

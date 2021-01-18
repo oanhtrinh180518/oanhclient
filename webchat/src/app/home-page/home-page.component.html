@@ -5,7 +5,9 @@
     <div class="card">
       <ul>
         <li *ngFor="let u of listFriend">
-          <button #idConvertation >{{ u.userId }}:{{ u.content }}</button>
+          <button  >
+          {{ u.userId }}:{{ u.content }}
+          {{u.conversationId}}</button>
         </li>
       </ul>
     </div>
