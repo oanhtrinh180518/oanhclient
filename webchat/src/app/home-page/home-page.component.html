@@ -6,7 +6,7 @@
     <button (click)="onSubmit()">Demo</button>
     <h1>{{ this.listFriend }}</h1>-->
     <div>Friend</div>
-   <!-- <select>
+    <!-- <select>
       <option *ngFor="let dealer of listFriend">
         {{ dealer.userId }}
       </option>
@@ -19,11 +19,16 @@
       </option>
     </select>
 -->
+    ListFriend
+
     <div class="card">
       <ul>
-        <li *ngFor="let u of listFriend">{{ u.userId }}</li>
+        <li *ngFor="let u of listFriend">
+          <button>{{ u.userId }}:{{ u.content }}</button>
+        </li>
       </ul>
     </div>
+
     <!--
 
 
