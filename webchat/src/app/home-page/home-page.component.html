@@ -1,37 +1,16 @@
 <html>
   <head></head>
   <body>
-    <!--<button (click)="getListFriend()">Get list friends</button>
-    <button (click)="getListUsers()">Get list user</button>
-    <button (click)="onSubmit()">Demo</button>
-    <h1>{{ this.listFriend }}</h1>-->
-    <div>Friend</div>
-    <!-- <select>
-      <option *ngFor="let dealer of listFriend">
-        {{ dealer.userId }}
-      </option>
-    </select>
-    -->
-    <div>User</div>
-    <!--<select>
-      <option *ngFor="let dealer of users">
-        {{ dealer.username }}
-      </option>
-    </select>
--->
     ListFriend
-
     <div class="card">
       <ul>
         <li *ngFor="let u of listFriend">
-          <button>{{ u.userId }}:{{ u.content }}</button>
+          <button id='idConvertation'>{{ u.userId }}:{{ u.content }}</button>
         </li>
       </ul>
     </div>
 
     <!--
-
-
     <div class="user"><app-my-user></app-my-user></div>
     <div class="search"> <app-search></app-search></div>
 
