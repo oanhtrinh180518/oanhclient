@@ -8,7 +8,7 @@ export interface User {
 }
 export interface Conversation{
   conversationId:Number;
-  usedId: string;
+  userId: string;
   content:string;
   date:string;
   codeConversation:string;
