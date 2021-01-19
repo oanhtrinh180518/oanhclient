@@ -1,37 +1,49 @@
 <html>
   <head></head>
   <body>
-    ListFriend
-    <div class="card">
-      <table>
-        <ul>
-          <td *ngFor="let u of listFriend">
-            <button>
-              {{ u.userId }}:{{ u.content }} {{ u.conversationId }}
-            </button>
-          </td>
-        </ul>
-      </table>
-    </div>
-    <div>
-      Chi tiết cuộc trò chuyện
+<div class='search'>
+<input id="keySearch" class="form-control" type="text" />
+  <button type="submit" value="Submit">Search</button>
+</div>
+
+
+    <div class="list-friends">
+      <label> ListFriend </label>
+
       <ul>
-        <li *ngFor="let u of currentConversation">
-          <button value=u.conversationId>{{ u.userId }}:{{ u.content }}</button>
-
-
+        <li *ngFor="let u of listFriend">
+          <button>{{ u.userId }}:{{ u.content }} {{ u.conversationId }}</button>
         </li>
       </ul>
     </div>
 
+    <div class="task-details">
+      <label> Chi tiết cuộc trò chuyện</label>
+      <ul>
+        <li *ngFor="let u of currentConversation">
+          <button value="u.conversationId">
+            {{ u.userId }}:{{ u.content }}
+          </button>
+        </li>
+      </ul>
+    </div>
     <!--
-    <div class="user"><app-my-user></app-my-user></div>
-    <div class="search"> <app-search></app-search></div>
-
-    <div class="list-friends"><app-list-friends></app-list-friends></div>
-    <div class="name-friend"></div>
-    <div class="task-details"><app-task-detail></app-task-detail></div>
-   -->
+    <form class="form-group">
+      <label> Chi tiết cuộc trò chuyện</label>
+      <ul>
+        <li *ngFor="let u of currentConversation">
+          <button
+            formControlName="conversation"
+            class="form-control"
+            value="u.conversationId"
+            #btn1
+          >
+            {{ u.userId }}:{{ u.content }}
+          </button>
+        </li>
+      </ul>
+    </form>
+-->
     <div>
       <button id="dangxuat" [routerLink]="['/login']">Đăng xuất</button>
     </div>
