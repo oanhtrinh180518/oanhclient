@@ -36,7 +36,7 @@ export class DataService {
 
   getFriendList(userId: any): Observable<Array<Conversation>> {
     return this.http.get<Array<Conversation>>(
-      this.BASE_PATH + '/user/getConversation/' + userId
+      this.BASE_PATH + '/user/getConversation/'
     );
   }
   getContentConversation(
@@ -46,14 +46,15 @@ export class DataService {
       this.BASE_PATH + '/user/getContentConversation/' + idConversatioin
     );
   }
-  postSendMessage(content: string, conversationId: string, userId: string) {
+  postSendMessage(content: string, conversationId: Number) {
     var params = new HttpParams()
       .set('content', content)
-      .set('conversationId', conversationId)
-      .set('userId', userId);
+      //@ts-ignore
+      .set('conversationId', conversationId);
+      var user={content:content,conversationId:conversationId,userId:''}
     return this.http.post<Response>(
-      this.BASE_PATH + '/uses/sendMessage',
-      params,
+      this.BASE_PATH + '/user/sendMessage',
+      user,
       {
         observe: 'response',
       }

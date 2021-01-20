@@ -1,33 +1,42 @@
 <html>
-  <head></head>
-  <body>
-<div class='search'>
-<input id="keySearch" class="form-control" type="text" />
-  <button type="submit" value="Submit">Search</button>
-</div>
+
+<head></head>
+
+<body>
+  <div class='search'>
+    <input id="keySearch" class="form-control" type="text" />
+    <button type="submit" value="Submit">Search</button>
+  </div>
 
 
-    <div class="list-friends">
-      <label> ListFriend </label>
+  <div class="list-friends">
+    <label> ListFriend </label>
 
-      <ul>
-        <li *ngFor="let u of listFriend">
-          <button>{{ u.userId }}:{{ u.content }} {{ u.conversationId }}</button>
-        </li>
-      </ul>
+    <ul>
+      <div *ngFor="let u of listFriend">
+        <button (click)="getConversationContent(u.conversationId)">
+          <b>{{ u.codeConversation }}</b> <br />
+          {{u.userId}}: {{ u.content }} <br />
+        </button>
+      </div>
+    </ul>
+  </div>
+
+  <div class="task-details">
+    <label> Chi tiết cuộc trò chuyện</label>
+    <ul>
+      <div *ngFor="let u of currentConversation">
+        <button value="u.conversationId">
+          {{ u.userId }}:{{ u.content }}
+        </button>
+      </div>
+    </ul>
+    <div>
+      <input #mess type='text' placeholder="Message" />
+       <button type="submit" (click)=postMessage(mess.value)>Send</button>
     </div>
-
-    <div class="task-details">
-      <label> Chi tiết cuộc trò chuyện</label>
-      <ul>
-        <li *ngFor="let u of currentConversation">
-          <button value="u.conversationId">
-            {{ u.userId }}:{{ u.content }}
-          </button>
-        </li>
-      </ul>
-    </div>
-    <!--
+  </div>
+  <!--
     <form class="form-group">
       <label> Chi tiết cuộc trò chuyện</label>
       <ul>
@@ -44,8 +53,9 @@
       </ul>
     </form>
 -->
-    <div>
-      <button id="dangxuat" [routerLink]="['/login']">Đăng xuất</button>
-    </div>
-  </body>
+  <div>
+    <button id="dangxuat" [routerLink]="['/login']">Đăng xuất</button>
+  </div>
+</body>
+
 </html>

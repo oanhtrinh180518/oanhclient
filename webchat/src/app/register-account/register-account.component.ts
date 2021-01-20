@@ -15,7 +15,7 @@ export class RegisterAccountComponent implements OnInit {
     private authenticationService: AuthService
   ) {}
   registerForm = this.fb.group({
-    username: [''],
+    userId: [''],
     password: [''],
   });
   ngOnInit() {}
@@ -28,7 +28,7 @@ export class RegisterAccountComponent implements OnInit {
   register() {
     this.authenticationService
       .register(
-        this.registerForm.value.username,
+        this.registerForm.value.userId,
         this.registerForm.value.password
       )
       .subscribe(response => {

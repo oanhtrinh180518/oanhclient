@@ -15,11 +15,14 @@ export class HomePageComponent implements OnInit {
     private dataService: DataService,
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) { }
 
   listFriend!: Conversation[];
   currentConversation!: Conversation[];
   idConversation!: Number;
+  content!: string;
+  conversationId!: Number;
+
 
   ngOnInit(): void {
     this.getListFriend();
@@ -41,6 +44,18 @@ export class HomePageComponent implements OnInit {
         (data: Array<Conversation>) => (this.currentConversation = data)
       );
     console.log('oanhtestgetCon', this.currentConversation);
+    this.conversationId = idConversation;
   }
-
+  postMessage(content: string) {
+    this.dataService.postSendMessage(content, this.conversationId).subscribe(response => {
+      var code = response.status;
+      if (code == 200) {
+        this.getConversationContent(this.conversationId);
+      }
+      else {
+        //this.getConversationContent(this.conversationId);
+        alert('Send not ok');
+      }});
+   
+  }
 }
