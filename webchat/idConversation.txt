@@ -1,0 +1,29 @@
+duong - oanh 1
+duong - hai 4
+duong - thu 7
+duong - son 10
+duong - nghia 13
+
+hai- oanh  16
+hai- - duong 4
+hai- - thu 19
+hai- - son 22
+hai- - nghia 25
+
+thu - oanh 28
+thu  - duong 7
+thu  - hai 19 
+thu  - nghia 31
+thu - son 34
+
+oanh - duong 1
+oanh- hai 16
+oanh - thu 28
+
+son- duong 10
+son - hai 22
+son - thu 34
+
+nghia - duong 13
+nghia - hai 25
+nghia - thu 31

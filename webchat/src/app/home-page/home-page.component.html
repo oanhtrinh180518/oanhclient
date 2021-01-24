@@ -1,9 +1,105 @@
+<!--
+  (keyup): bấm 1 phím
+-->
 <html>
+  <head> </head>
 
-<head></head>
+  <body>
+    <div class="left">
+      <div class="up">
+        <ul>
+          <li class="logo">
+            <a href="#!">
+              <h1><b>Webchat</b></h1>
+              <!--<img
+                width="50px"
+                height="50px"
+                class="card-img-top"
+                src="webchat.jpg"
+              />
+              -->
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="search">
+        <input type="" name="" placeholder="Tìm kiếm trên webchat" />
+        <button>
+          Tìm kiếm
+          <!--<img src="image/glass.png" />-->
+        </button>
+      </div>
+      <div class="listFriend">
+        <label> ListFriend </label>
 
-<body>
-  <div class='search'>
+        <ul class='ulListFriend'>
+          <div *ngFor="let u of listFriend">
+            <button class='btnListFriend' (click)="getConversationContent(u.conversationId)">
+              <b>{{ u.codeConversation }}</b> <br />
+              {{ u.userId }}: {{ u.content }} <br />
+            </button>
+          </div>
+        </ul>
+      </div>
+    </div>
+
+    <div class="center">
+      <div class="userName">
+        <div class="detailUser">
+          <ul>
+            <li>
+              <p class="namefriend">Tên friend</p>
+            </li>
+            <li class="icon">
+              <a href="">
+                <img src="image/call.gif" />
+              </a>
+            </li>
+
+            <li class="icon">
+              <a href="">
+                <img src="image/video.PNG" />
+              </a>
+            </li>
+            <li class="icon">
+              <a href="">
+                <img src="image/infomation.PNG" />
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!--close detail-->
+      </div>
+      <!--close userName-->
+      <div class="conversation">
+        <label> Chi tiết cuộc trò chuyện</label>
+        <ul>
+          <div *ngFor="let u of currentConversation">
+            <button class='btnConversation' value="u.conversationId">
+              {{ u.userId }}:{{ u.content }}
+            </button>
+          </div>
+        </ul>
+      </div>
+      <div class="message">
+        <input #mess type="text" placeholder="Message" />
+        <button type="submit" (click)="postMessage(mess.value)">Send</button>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="infUserall">
+        <a href="" class="nameUser">Ten userName</a><br />
+        <a href="" class="infoUser">Tùy chỉnh đoạn chat</a><br />
+        <a href="" class="infoUser">Quyền riêng tư và hỗ trợ</a><br />
+        <a href="" class="infoUser">Tệp được chia sẻ</a><br />
+        <a href="" class="infoUser">Ảnh đã chia sẻ</a><br />
+      </div>
+    </div>
+  </body>
+</html>
+<!--
+ <div class='search'>
     <input id="keySearch" class="form-control" type="text" />
     <button type="submit" value="Submit">Search</button>
   </div>
@@ -36,26 +132,8 @@
        <button type="submit" (click)=postMessage(mess.value)>Send</button>
     </div>
   </div>
-  <!--
-    <form class="form-group">
-      <label> Chi tiết cuộc trò chuyện</label>
-      <ul>
-        <li *ngFor="let u of currentConversation">
-          <button
-            formControlName="conversation"
-            class="form-control"
-            value="u.conversationId"
-            #btn1
-          >
-            {{ u.userId }}:{{ u.content }}
-          </button>
-        </li>
-      </ul>
-    </form>
--->
+
   <div>
     <button id="dangxuat" [routerLink]="['/login']">Đăng xuất</button>
   </div>
-</body>
-
-</html>
+-->
