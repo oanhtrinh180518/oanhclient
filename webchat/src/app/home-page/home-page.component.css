@@ -75,6 +75,16 @@
     height: 70px;
     width: 100%;
     margin: 0px;
+    text-align: left;
+}
+
+.listFriend p {
+    display: inline-block;
+}
+
+.code {
+    font-size: 25px;
+    margin: 0px;
 }
 
 .viewport2 {
@@ -168,6 +178,9 @@
 }
 
 .msg {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0px;
     background: #eef8ff;
     min-width: 50px;
     padding: 10px;
