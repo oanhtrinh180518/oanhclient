@@ -84,8 +84,8 @@ export class HomePageComponent implements OnInit {
   }
   Search(res:string) {
     this.searchListFriend = this.listFriend.filter((res) => {
-      return res.codeConversation.toLocaleUpperCase().match(this.codeConversation.toLocaleLowerCase());
-      console.log('oanhcheck',this.searchListFriend)
+       res.codeConversation.toLocaleUpperCase().match(this.codeConversation.toLocaleLowerCase());
+      console.log('oanhcheck',this.searchListFriend);
     });
   }
 }
