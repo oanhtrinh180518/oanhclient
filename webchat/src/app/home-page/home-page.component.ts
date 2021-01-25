@@ -26,16 +26,17 @@ export class HomePageComponent implements OnInit {
   codeConversation!: string;
   userId!: string;
   content!: string;
+  searchListFriend!: Conversation[];
 
   ngOnInit(): void {
     this.getListFriend();
 
-    this.getConversationContent(
-      this.idConversation,
-      this.codeConversation,
-      this.userId,
-      this.content
-    );
+    // this.getConversationContent(
+    //   this.idConversation,
+    //   this.codeConversation,
+    //   this.userId,
+    //   this.content
+    // );
   }
 
   getListFriend() {
@@ -43,6 +44,7 @@ export class HomePageComponent implements OnInit {
       .getFriendList(this.authService.getLoggedInUserName())
       .subscribe((data: Array<Conversation>) => (this.listFriend = data));
     console.log('sontestFriend', this.listFriend);
+
   }
 
   getConversationContent(
@@ -59,7 +61,7 @@ export class HomePageComponent implements OnInit {
     this.conversationId = idConversation;
     this.codeConversation = codeConversation;
     this.userId = userId;
-    this.content=content;
+    this.content = content;
   }
   postMessage(content: string) {
     this.dataService
@@ -73,10 +75,17 @@ export class HomePageComponent implements OnInit {
             this.userId,
             this.content
           );
+          this.ngOnInit();
         } else {
           //this.getConversationContent(this.conversationId);
           alert('Send not ok');
         }
       });
+  }
+  Search(res:string) {
+    this.searchListFriend = this.listFriend.filter((res) => {
+      return res.codeConversation.toLocaleUpperCase().match(this.codeConversation.toLocaleLowerCase());
+      console.log('oanhcheck',this.searchListFriend)
+    });
   }
 }

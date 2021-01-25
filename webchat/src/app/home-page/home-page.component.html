@@ -16,7 +16,12 @@
         </ul>
       </div>
       <div class="search">
-        <input type="" name="" placeholder="Tìm kiếm trên webchat" />
+        <input
+          #myInput
+          type=""
+          placeholder="Tìm kiếm trên webchat"
+          (keydown.enter)="Search(myInput.value); (false); myInput.value = ''"
+        />
         <button>Tìm kiếm</button>
       </div>
       <div class="listFriend">
@@ -34,7 +39,9 @@
               "
             >
               <mat-card-title>
-                <p class='code'><b>{{ u.codeConversation }}</b></p>
+                <p class="code">
+                  <b>{{ u.codeConversation }}</b>
+                </p>
               </mat-card-title>
               <mat-card-content
                 ><b>{{ u.userId }}</b
@@ -54,7 +61,7 @@
             <li>
               <p class="namefriend">{{ codeConversation }}</p>
             </li>
-            <li class="icon">
+           <!-- <li class="icon">
               <a href="">
                 <img src="image/call.gif" />
               </a>
@@ -69,7 +76,7 @@
               <a href="">
                 <img src="image/infomation.PNG" />
               </a>
-            </li>
+            </li>-->
           </ul>
         </div>
       </div>
@@ -93,7 +100,7 @@
           #mess
           type="text"
           placeholder="Message"
-          name='newMsg'
+          name="newMsg"
           (keydown.enter)="postMessage(mess.value); (false); mess.value = ''"
         />
         <!--<button
@@ -108,7 +115,8 @@
 
     <div class="right">
       <div class="infUserall">
-        <a href="" class="nameUser">{{codeConversation}}</a><br />
+        <a href="" class="nameUser">{{ codeConversation }}</a
+        ><br />
         <a href="" class="infoUser">Tùy chỉnh đoạn chat</a><br />
         <a href="" class="infoUser">Quyền riêng tư và hỗ trợ</a><br />
         <a href="" class="infoUser">Tệp được chia sẻ</a><br />
