@@ -27,7 +27,7 @@ export class HomePageComponent implements OnInit {
   userId!: string;
   content!: string;
   searchListFriend!: Conversation[];
-
+  listUser!:User[];
   ngOnInit(): void {
     this.getListFriend();
 
@@ -37,6 +37,7 @@ export class HomePageComponent implements OnInit {
     //   this.userId,
     //   this.content
     // );
+    this.getListUser();
   }
 
   getListFriend() {
@@ -63,6 +64,19 @@ export class HomePageComponent implements OnInit {
     this.userId = userId;
     this.content = content;
   }
+  getConversationContent2(
+    idConversation: string,
+  ) {
+    this.dataService
+      .getContentConversation(Number(idConversation))
+      .subscribe(
+        (data: Array<Conversation>) => (this.currentConversation = data)
+      );
+    this.conversationId =  Number(idConversation);
+    this.codeConversation=this.currentConversation[0].codeConversation;
+    console.log("conver-code",this.codeConversation);
+  }
+
   postMessage(content: string) {
     this.dataService
       .postSendMessage(content, this.conversationId)
@@ -87,5 +101,13 @@ export class HomePageComponent implements OnInit {
        res.codeConversation.toLocaleUpperCase().match(this.codeConversation.toLocaleLowerCase());
       console.log('oanhcheck',this.searchListFriend);
     });
+  }
+
+  getListUser() {
+    this.dataService
+      .getUserList()
+      .subscribe((data: Array<User>) => (this.listUser = data));
+    console.log('sontestFriend', this.listUser);
+
   }
 }
