@@ -11,35 +11,39 @@
           <li class="logo">
             <a href="#!">
               <h1><b>Webchat</b></h1>
-              <!--<img
-                width="50px"
-                height="50px"
-                class="card-img-top"
-                src="webchat.jpg"
-              />
-              -->
             </a>
           </li>
         </ul>
       </div>
       <div class="search">
         <input type="" name="" placeholder="Tìm kiếm trên webchat" />
-        <button>
-          Tìm kiếm
-          <!--<img src="image/glass.png" />-->
-        </button>
+        <button>Tìm kiếm</button>
       </div>
       <div class="listFriend">
-        <label> ListFriend </label>
-
-        <ul class='ulListFriend'>
-          <div *ngFor="let u of listFriend">
-            <button class='btnListFriend' (click)="getConversationContent(u.conversationId)">
-              <b>{{ u.codeConversation }}</b> <br />
-              {{ u.userId }}: {{ u.content }} <br />
+        <cdk-virtual-scroll-viewport itemSize="70" class="viewport2">
+          <mat-card *cdkVirtualFor="let u of listFriend">
+            <button
+              class="btnListFriend"
+              (click)="
+                getConversationContent(
+                  u.conversationId,
+                  u.codeConversation,
+                  u.userId,
+                  u.content
+                )
+              "
+            >
+              <mat-card-title>
+                <b>{{ u.codeConversation }}</b>
+              </mat-card-title>
+              <mat-card-content
+                ><b>{{ u.userId }}</b
+                >:
+                {{ u.content }}
+              </mat-card-content>
             </button>
-          </div>
-        </ul>
+          </mat-card>
+        </cdk-virtual-scroll-viewport>
       </div>
     </div>
 
@@ -48,7 +52,7 @@
         <div class="detailUser">
           <ul>
             <li>
-              <p class="namefriend">Tên friend</p>
+              <p class="namefriend">{{ codeConversation }}</p>
             </li>
             <li class="icon">
               <a href="">
@@ -68,28 +72,43 @@
             </li>
           </ul>
         </div>
-        <!--close detail-->
       </div>
-      <!--close userName-->
       <div class="conversation">
-        <label> Chi tiết cuộc trò chuyện</label>
-        <ul>
-          <div *ngFor="let u of currentConversation">
-            <button class='btnConversation' value="u.conversationId">
-              {{ u.userId }}:{{ u.content }}
-            </button>
-          </div>
-        </ul>
+        <cdk-virtual-scroll-viewport itemSize="40" class="viewport">
+          <li
+            [ngClass]="{
+              self: u.userId == userId,
+              other: u.userId != userId
+            }"
+            *cdkVirtualFor="let u of currentConversation"
+          >
+            <div class="msg">
+              <p>{{ u.content }}<br /></p>
+            </div>
+          </li>
+        </cdk-virtual-scroll-viewport>
       </div>
       <div class="message">
-        <input #mess type="text" placeholder="Message" />
-        <button type="submit" (click)="postMessage(mess.value)">Send</button>
+        <input
+          #mess
+          type="text"
+          placeholder="Message"
+          name='newMsg'
+          (keydown.enter)="postMessage(mess.value); (false); mess.value = ''"
+        />
+        <!--<button
+          type="submit"
+          (click)="postMessage(mess.value); (false); msgInput.value = ''"
+        >
+          Send
+        </button>
+        -->
       </div>
     </div>
 
     <div class="right">
       <div class="infUserall">
-        <a href="" class="nameUser">Ten userName</a><br />
+        <a href="" class="nameUser">{{codeConversation}}</a><br />
         <a href="" class="infoUser">Tùy chỉnh đoạn chat</a><br />
         <a href="" class="infoUser">Quyền riêng tư và hỗ trợ</a><br />
         <a href="" class="infoUser">Tệp được chia sẻ</a><br />
@@ -99,39 +118,6 @@
   </body>
 </html>
 <!--
- <div class='search'>
-    <input id="keySearch" class="form-control" type="text" />
-    <button type="submit" value="Submit">Search</button>
-  </div>
-
-
-  <div class="list-friends">
-    <label> ListFriend </label>
-
-    <ul>
-      <div *ngFor="let u of listFriend">
-        <button (click)="getConversationContent(u.conversationId)">
-          <b>{{ u.codeConversation }}</b> <br />
-          {{u.userId}}: {{ u.content }} <br />
-        </button>
-      </div>
-    </ul>
-  </div>
-
-  <div class="task-details">
-    <label> Chi tiết cuộc trò chuyện</label>
-    <ul>
-      <div *ngFor="let u of currentConversation">
-        <button value="u.conversationId">
-          {{ u.userId }}:{{ u.content }}
-        </button>
-      </div>
-    </ul>
-    <div>
-      <input #mess type='text' placeholder="Message" />
-       <button type="submit" (click)=postMessage(mess.value)>Send</button>
-    </div>
-  </div>
 
   <div>
     <button id="dangxuat" [routerLink]="['/login']">Đăng xuất</button>

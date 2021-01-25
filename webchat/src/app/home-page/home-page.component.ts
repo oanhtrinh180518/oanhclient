@@ -10,6 +10,7 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./home-page.component.css'],
 })
 export class HomePageComponent implements OnInit {
+  [x: string]: any;
   constructor(
     private fb: FormBuilder,
     private dataService: DataService,
@@ -22,11 +23,19 @@ export class HomePageComponent implements OnInit {
   idConversation!: Number;
   content!: string;
   conversationId!: Number;
+  codeConversation!: string;
+  userId!: string;
+  content!: string;
 
   ngOnInit(): void {
     this.getListFriend();
 
-    this.getConversationContent(this.idConversation);
+    this.getConversationContent(
+      this.idConversation,
+      this.codeConversation,
+      this.userId,
+      this.content
+    );
   }
 
   getListFriend() {
@@ -36,14 +45,21 @@ export class HomePageComponent implements OnInit {
     console.log('sontestFriend', this.listFriend);
   }
 
-  getConversationContent(idConversation: Number) {
+  getConversationContent(
+    idConversation: Number,
+    codeConversation: string,
+    userId: string,
+    content: string
+  ) {
     this.dataService
       .getContentConversation(idConversation)
       .subscribe(
         (data: Array<Conversation>) => (this.currentConversation = data)
       );
-    console.log('oanhtestgetCon', this.currentConversation);
     this.conversationId = idConversation;
+    this.codeConversation = codeConversation;
+    this.userId = userId;
+    this.content=content;
   }
   postMessage(content: string) {
     this.dataService
@@ -51,7 +67,12 @@ export class HomePageComponent implements OnInit {
       .subscribe((response) => {
         var code = response.status;
         if (code == 200) {
-          this.getConversationContent(this.conversationId);
+          this.getConversationContent(
+            this.conversationId,
+            this.codeConversation,
+            this.userId,
+            this.content
+          );
         } else {
           //this.getConversationContent(this.conversationId);
           alert('Send not ok');

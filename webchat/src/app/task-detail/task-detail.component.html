@@ -1,18 +1,16 @@
-<body>
-  <p>Trang chu</p>
-  <table border="1">
-    <tr>
-      <td>STT</td>
-      <td>Tên công việc</td>
-      <td>Thời hạn</td>
-      <td>Trạng thái</td>
-    </tr>
-    <tr *ngFor="let task of tasks">
-      <td>{{ task.message_id }}</td>
-      <td>{{ task.content }}</td>
-      <td>{{ task.conversation_id }}</td>
-      <td>{{ task.date }}</td>
-      <td>{{ task.user_id }}</td>
-    </tr>
-  </table>
-</body>
+<!--<div class='taskDetail' #scrollMe [scrollTop]="scrollMe.scrollHeight">
+  <div *ngFor="let u of currentConversation">
+    <div *ngIf="u.userId == codeConversation">
+      <p class="btnConversation btn1" value="u.conversationId">
+        {{ u.userId }}:{{ u.content }}
+      </p>
+      <br />
+    </div>
+    <div *ngIf="u.userId !== codeConversation">
+      <p class="btnConversation btn2" value="u.conversationId">
+        {{ u.userId }}:{{ u.content }}
+      </p>
+    </div>
+  </div>
+</div>
+-->

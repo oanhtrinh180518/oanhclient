@@ -62,22 +62,32 @@
 
 .listFriend {
     height: 580px;
-    width: 95%;
+    width: 100%;
     border: 1px solid rgb(204, 204, 204);
+    overflow: hidden;
 }
 
-.listFriend ul li {
+.listFriend button {
     display: inline-block;
-    padding: 2px;
 }
 
 .btnListFriend {
     height: 70px;
     width: 100%;
+    margin: 0px;
 }
 
-.left .btnListFriend b {
-    text-align: left;
+.viewport2 {
+    height: 590px;
+    width: 100%;
+    margin: 0px;
+    box-shadow: 1px 1px 1px white;
+}
+
+.listFriend mat-card {
+    height: 70px;
+    margin: 0px;
+    padding: 0px;
 }
 
 
@@ -113,19 +123,67 @@
 }
 
 .detailUser {
-    height: 35px;
-    margin-top: -50px;
+    height: 40px;
+    margin-top: -10px;
 }
 
 .conversation {
-    height: 610px;
-    background-color: blanchedalmond;
+    position: relative;
+    height: 600px;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    align-self: center;
+    margin: 0px;
+    padding: 0px;
 }
 
-.btnConversation {
-    display: inline-block;
-    height: 50px;
-    margin: 5px;
+.conversation li {
+    list-style: none;
+    padding: 0.5rem;
+    overflow: hidden;
+    display: flex;
+}
+
+.conversation mat-card {
+    height: 40px;
+    margin: 2px;
+}
+
+.viewport {
+    height: 590px;
+    width: 100%;
+    margin: 2px 2px 2px 2px;
+    box-shadow: 1px 1px 1px white;
+}
+
+.self {
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.other {
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.msg {
+    background: #eef8ff;
+    min-width: 50px;
+    padding: 10px;
+    border-radius: 20px;
+    word-break: break-all;
+}
+
+.self .msg {
+    border-bottom-right-radius: 0px;
+    box-shadow: 1px 2px 0px #c1cbcd;
+}
+
+.other .msg {
+    border-top-left-radius: 0px;
+    box-shadow: -1px 2px 0px #c1cbcd;
+    background: rgb(223, 216, 216);
 }
 
 
@@ -154,10 +212,6 @@
     padding-right: 440px;
 }
 
-.detailUser ul li a img {
-    vertical-align: middle;
-}
-
 
 /* message */
 
@@ -181,18 +235,6 @@
     font-size: 15px;
 }
 
-.message button {
-    height: 25px;
-    border: 0px;
-    background-color: white;
-}
-
-.message button img {
-    width: auto;
-    height: 23px;
-    vertical-align: middle;
-}
-
 
 /* end */
 
@@ -210,6 +252,10 @@
     float: left;
     border: 1px solid rgb(204, 204, 204);
     padding: 10px;
+}
+
+.infUserall a {
+    display: inline-block;
 }
 
 .nameUser {

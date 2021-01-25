@@ -17,6 +17,8 @@ import { SearchComponent } from './search/search.component';
 import { ListFriendsComponent } from './list-friends/list-friends.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterceptorService } from './http-interceptor.service';
+import { ScrollingModule} from '@angular/cdk/scrolling';
+import { MatCardModule  } from '@angular/material/card';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -56,12 +58,16 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    ScrollingModule,
+    MatCardModule
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: HttpInterceptorService,
-    multi: true
-    }],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
