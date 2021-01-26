@@ -3,6 +3,8 @@ import { DataService, Conversation, User } from './../data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
+import { WebSocketAPI } from 'src/app/WebSocketAPI';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 
 @Component({
   selector: 'app-home-page',
@@ -12,10 +14,10 @@ import { FormBuilder } from '@angular/forms';
 export class HomePageComponent implements OnInit {
   [x: string]: any;
   constructor(
-    private fb: FormBuilder,
+    // private fb: FormBuilder,
     private dataService: DataService,
     private authService: AuthService,
-    private router: Router
+    // private router: Router,
   ) {}
 
   listFriend!: Conversation[];
@@ -27,16 +29,36 @@ export class HomePageComponent implements OnInit {
   userId!: string;
   content!: string;
   searchListFriend!: Conversation[];
-
+  
+  webSocketAPI!: WebSocketAPI;
+  greeting: any;
+  name!: string;
   ngOnInit(): void {
+    // this.webSocketAPI = new WebSocketAPI(new HomePageComponent(this.dataService,this.authService));
     this.getListFriend();
-
+    this.connect();
     // this.getConversationContent(
     //   this.idConversation,
     //   this.codeConversation,
     //   this.userId,
     //   this.content
     // );
+  }
+
+  connect(){
+    this.webSocketAPI._connect();
+  }
+
+  disconnect(){
+    this.webSocketAPI._disconnect();
+  }
+
+  sendMessage(){
+    this.webSocketAPI._send(this.name);
+  }
+
+  handleMessage(message:any){
+    this.greeting = message;
   }
 
   getListFriend() {
