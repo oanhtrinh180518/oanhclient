@@ -37,7 +37,8 @@ export class LoginComponent implements OnInit {
             this.authenticationService.username = this.loginForm.value.username;
             this.authenticationService.password = this.loginForm.value.password;
             this.authenticationService.registerSuccessfulLogin(
-              this.loginForm.value.username
+              this.loginForm.value.username,
+              this.loginForm.value.password
             )
             this.router.navigate(['/home-page']);
           }

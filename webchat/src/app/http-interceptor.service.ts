@@ -25,9 +25,9 @@ export class HttpInterceptorService implements HttpInterceptor {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
           'Authorization': `Basic ${window.btoa(
-      this.authenticationService.username +
+      this.authenticationService.getLoggedInUserName() +
         ':' +
-        this.authenticationService.password
+        this.authenticationService.getLoggedInPassword()
     )}`,
         }),
       });
