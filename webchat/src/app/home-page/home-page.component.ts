@@ -32,9 +32,9 @@ export class HomePageComponent implements OnInit {
   
   webSocketAPI!: WebSocketAPI;
   greeting: any;
-  name!: string;
+  name: string='update';
   ngOnInit(): void {
-    // this.webSocketAPI = new WebSocketAPI(new HomePageComponent(this.dataService,this.authService));
+    this.webSocketAPI = new WebSocketAPI(this,this.authService);
     this.getListFriend();
     this.connect();
     // this.getConversationContent(
@@ -54,7 +54,7 @@ export class HomePageComponent implements OnInit {
   }
 
   sendMessage(){
-    this.webSocketAPI._send(this.name);
+    this.webSocketAPI._send(this.conversationId);
   }
 
   handleMessage(message:any){

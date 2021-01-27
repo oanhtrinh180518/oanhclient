@@ -1,17 +1,22 @@
 import * as Stomp from 'stompjs';
 import * as SockJS from 'sockjs-client';
 import { HomePageComponent } from './home-page/home-page.component';
+import { AuthService } from './auth.service';
 
 export class WebSocketAPI {
     webSocketEndPoint: string = 'http://localhost:8080/gs-guide-websocket';
     topic: string = "/user/queue/greetings";
     stompClient: any;
     homePageComponent: HomePageComponent;
-    constructor(homePageComponent: HomePageComponent){
+
+    constructor(homePageComponent: HomePageComponent,private authenticationService: AuthService){
         this.homePageComponent = homePageComponent;
     }
+
     _connect() {
         console.log("Initialize WebSocket Connection");
+        console.log(this.authenticationService.getLoggedInUserName(), "<-user");
+
         let ws = new SockJS(this.webSocketEndPoint);
         this.stompClient = Stomp.over(ws);
         const _this = this;

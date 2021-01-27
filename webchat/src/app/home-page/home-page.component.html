@@ -101,7 +101,7 @@
           type="text"
           placeholder="Message"
           name="newMsg"
-          (keydown.enter)="postMessage(mess.value); (false); mess.value = ''"
+          (keydown.enter)="postMessage(mess.value); (false); mess.value = '';sendMessage()"
         />
         <!--<button
           type="submit"
