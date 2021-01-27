@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 export class AuthService {
   BASE_PATH = 'http://localhost:8080';
   USER_NAME_SESSION = 'username_session';
-
+  PASSWORD_SESSION = 'password_session';
   public username!: String;
   public password!: String;
   constructor(private http: HttpClient) {}
@@ -33,8 +33,9 @@ export class AuthService {
     console.log(this.username + ':' + this.password);
     return 'Basic ' + window.btoa(this.username + ':' + this.password);
   }
-  registerSuccessfulLogin(username: string) {
+  registerSuccessfulLogin(username: string,password:string) {
     sessionStorage.setItem(this.USER_NAME_SESSION, username);
+    sessionStorage.setItem(this.PASSWORD_SESSION,password);
   }
   logout() {
     sessionStorage.removeItem(this.USER_NAME_SESSION);
@@ -48,6 +49,11 @@ export class AuthService {
   }
   getLoggedInUserName() {
     let user = sessionStorage.getItem(this.USER_NAME_SESSION);
+    if (user === null) return '';
+    return user;
+  }
+  getLoggedInPassword() {
+    let user = sessionStorage.getItem(this.PASSWORD_SESSION);
     if (user === null) return '';
     return user;
   }
