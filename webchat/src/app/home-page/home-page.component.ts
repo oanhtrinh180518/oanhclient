@@ -3,7 +3,7 @@ import { DataService, Conversation, User, UserOnly } from './../data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
-import { WebSocketAPI } from 'src/app/WebSocketAPI';
+// import { WebSocketAPI } from 'src/app/WebSocketAPI';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 
 @Component({
@@ -33,16 +33,16 @@ export class HomePageComponent implements OnInit {
   user!:any;
 
   ngOnInit(): void {
-    this.webSocketAPI = new WebSocketAPI(this,this.authService);
+    // this.webSocketAPI = new WebSocketAPI(this,this.authService);
     this.getListFriend();
-    this.connect();
+    // this.connect();
     // this.getConversationContent(
     //   this.idConversation,
     //   this.codeConversation,
     //   this.userId,
     //   this.content
     // );
-    this.getListUser();
+    // this.getListUser();
   }
 
   connect(){
@@ -65,23 +65,26 @@ export class HomePageComponent implements OnInit {
     this.dataService
       .getFriendList(this.authService.getLoggedInUserName())
       .subscribe((data: Array<Conversation>) => (this.listFriend = data));
+      // this.user=this.listFriend[0];
+      // this.conversationId=this.user.conversationId;
+      
   }
 
   getConversationContent(
     idConversation: Number,
-    codeConversation: string,
-    userId: string,
-    content: string
+    codeConversation:string,
+    userId:string
   ) {
     this.dataService
       .getContentConversation(idConversation)
       .subscribe(
         (data: Array<Conversation>) => (this.currentConversation = data)
       );
-    this.conversationId = idConversation;
+    this.idConversation = idConversation;
+    // this.user=this.currentConversation;
     this.codeConversation = codeConversation;
     this.userId = userId;
-    this.content = content;
+    console.log("test",this.codeConversation);
   }
 
   getConversationContent2(userId: string) {
@@ -90,11 +93,11 @@ export class HomePageComponent implements OnInit {
       .subscribe(
         (data: Array<Conversation>) => (this.currentConversation = data)
       );
-    this.userId = this.currentConversation[0].codeConversation;
+    this.userId = userId;
 
     this.user=this.currentConversation.find(a =>a.userId==this.userId);
     this.conversationId=this.user.conversationId;
-    this.codeConversation=this.user.codeConversation;
+    this.codeConversation=this.userId;
     this.content=this.user.content;
   }
 
@@ -105,10 +108,8 @@ export class HomePageComponent implements OnInit {
         var code = response.status;
         if (code == 200) {
           this.getConversationContent(
-            this.conversationId,
-            this.codeConversation,
-            this.userId,
-            this.content
+            this.conversationId, this.codeConversation,this.userId
+           
           );
           this.getListFriend();
           this.ngOnInit();

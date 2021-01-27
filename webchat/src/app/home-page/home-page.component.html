@@ -1,150 +1,88 @@
-<!--
-  (keyup): bấm 1 phím
-  keydown.enter
--->
 <html>
-  <head>
-    <script src="home-page.component.js"></script>
-  </head>
 
-  <body>
+<body>
     <div class="left">
-      <div class="up">
-        <ul>
-          <li class="logo">
-            <a href="#!">
-              <h1><b>Webchat</b></h1>
-            </a>
-          </li>
-        </ul>
-      </div>
+        <div class="up">
+            <ul>
+                <li class="logo">
+                    <a href="#!">
+                        <h1><b>Webchat</b></h1>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
-      <div class="search">
-        <input
-          #myInput
-          type=""
-          placeholder="Tìm kiếm trên webchat"
-          (keydown.enter)="getSearch(myInput.value); (false)"
-        />
-        <br />
-        <select
-          class="search1"
-          #mySearch
-          (click)="getConversationContent2(mySearch.value)"
-          [ngModel]=''
-        >
-          <option
-            *ngFor="let u of listUser"
-            (ngModel)="(u)"
-            [value]="u"
-            [selected]="u"
-          >
-            {{ u }}
-          </option>
-        </select>
-      </div>
-      <div class="listFriend">
-        <cdk-virtual-scroll-viewport itemSize="70" class="viewport2">
-          <mat-card *cdkVirtualFor="let u of listFriend">
-            <button
-              class="btnListFriend"
-              (click)="
+        <div class="search">
+            <input #myInput type="" placeholder="Tìm kiếm trên webchat" (keydown.enter)="getSearch(myInput.value); (false)" />
+            <br />
+            <select class="search1" #mySearch (click)="getConversationContent2(mySearch.value)" [ngModel]=''>
+        <option *ngFor="let u of listUser" (ngModel)="(u)" [value]="u" [selected]="u">
+          {{ u }}
+        </option>
+      </select>
+        </div>
+        <div class="listFriend">
+            <cdk-virtual-scroll-viewport itemSize="70" class="viewport2">
+                <mat-card *cdkVirtualFor="let u of listFriend">
+                    <button class="btnListFriend" (click)="
                 getConversationContent(
-                  u.conversationId,
-                  u.codeConversation,
-                  u.userId,
-                  u.content
+                  u.conversationId, u.codeConversation,u.userId
                 )
-              "
-            >
-              <mat-card-title>
-                <p class="code">
-                  <b>{{ u.codeConversation }}</b>
-                </p>
-              </mat-card-title>
-              <mat-card-content
-                ><b>{{ u.userId }}</b
-                >:
-                {{ u.content }}
-              </mat-card-content>
-            </button>
-          </mat-card>
-        </cdk-virtual-scroll-viewport>
-      </div>
+              ">
+            <mat-card-title>
+              <p class="code">
+                <b>{{ u.codeConversation }}</b>
+              </p>
+            </mat-card-title>
+            <mat-card-content><b>{{ u.userId }}</b>:
+              {{ u.content }}
+            </mat-card-content>
+          </button>
+                </mat-card>
+            </cdk-virtual-scroll-viewport>
+        </div>
     </div>
 
     <div class="center">
-      <div class="userName">
-        <div class="detailUser">
-          <ul>
-            <li>
-              <p class="namefriend">{{ codeConversation }}</p>
-            </li>
-            <!-- <li class="icon">
-              <a href="">
-                <img src="image/call.gif" />
-              </a>
-            </li>
-
-            <li class="icon">
-              <a href="">
-                <img src="image/video.PNG" />
-              </a>
-            </li>
-            <li class="icon">
-              <a href="">
-                <img src="image/infomation.PNG" />
-              </a>
-            </li>-->
-          </ul>
+        <div class="userName">
+            <div class="detailUser">
+                <ul>
+                    <li>
+                        <p class="namefriend">{{ codeConversation }}</p>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
-      <div class="conversation">
-        <cdk-virtual-scroll-viewport itemSize="40" class="viewport">
-          <li
-            [ngClass]="{
+        <div class="conversation">
+            <cdk-virtual-scroll-viewport itemSize="40" class="viewport">
+                <li [ngClass]="{
               self: u.userId == userId,
               other: u.userId != userId
-            }"
-            *cdkVirtualFor="let u of currentConversation"
-          >
-            <div class="msg">
-              <p>{{ u.content }}<br /></p>
-            </div>
-          </li>
-        </cdk-virtual-scroll-viewport>
-      </div>
-      <div class="message">
-        <input
-          #mess
-          type="text"
-          placeholder="Message"
-          name="newMsg"
-          [ngModel]="newMsg"
-          (keydown.enter)="postMessage(mess.value); (false); mess.value = ''"
-        />
-        <!--<button
-          type="submit"
-          (click)="postMessage(mess.value); (false); msgInput.value = ''"
-        >
-          Send
-        </button>
-        -->
-      </div>
+            }" *cdkVirtualFor="let u of currentConversation">
+                    <div class="msg">
+                        <p>{{ u.content }}<br /></p>
+                    </div>
+                </li>
+            </cdk-virtual-scroll-viewport>
+        </div>
+        <div class="message">
+            <input #mess type="text" placeholder="Message" name="newMsg" (keydown.enter)="postMessage(mess.value); (false); mess.value = ''" />
+            <!-- <button class='btnSend' (click)="postMessage(mess.value); (false); mess.value = ''">Gửi</button> -->
+        </div>
     </div>
 
     <div class="right">
-      <div class="infUserall">
-        <a href="" class="nameUser">{{ codeConversation }}</a
-        ><br />
-        <a href="" class="infoUser">Tùy chỉnh đoạn chat</a><br />
-        <a href="" class="infoUser">Quyền riêng tư và hỗ trợ</a><br />
-        <a href="" class="infoUser">Tệp được chia sẻ</a><br />
-        <a href="" class="infoUser">Ảnh đã chia sẻ</a><br />
-        <a href="" id="dangxuat" [routerLink]="['/login']">Đăng xuất</a><br />
-      </div>
+        <div class="infUserall">
+            <a href="" class="nameUser">{{ codeConversation }}</a><br />
+            <a href="" class="infoUser">Tùy chỉnh đoạn chat</a><br />
+            <a href="" class="infoUser">Quyền riêng tư và hỗ trợ</a><br />
+            <a href="" class="infoUser">Tệp được chia sẻ</a><br />
+            <a href="" class="infoUser">Ảnh đã chia sẻ</a><br />
+            <a href="" id="dangxuat" [routerLink]="['/login']">Đăng xuất</a><br />
+        </div>
     </div>
-  </body>
+</body>
+
 </html>
 <!--
 

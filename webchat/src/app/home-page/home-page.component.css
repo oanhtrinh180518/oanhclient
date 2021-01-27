@@ -2,7 +2,7 @@
         
         .left {
             width: 20%;
-            height: 670px;
+            height: 600px;
             background-color: white;
             float: left;
         }
@@ -20,14 +20,12 @@
         /* Search */
         
         .search {
-            height: 100px;
+            height: 50;
             width: 90%;
             background-color: white;
             margin-left: 10px;
             margin-right: 30px;
             margin-bottom: 10px;
-            border: 1px solid rgb(204, 204, 204);
-            border-radius: 10px;
         }
         
         .search select {
@@ -44,13 +42,16 @@
         }
         
         .search .search1 {
-            width: 65%;
+            width: 90%;
             height: 25px;
             margin-left: 10px;
+            margin-top: 5px;
             border-radius: 10px;
             border: 0px;
             font-size: 15px;
             text-align: center;
+            border: 1px solid rgb(204, 204, 204);
+            background: white;
         }
         
         .search button {
@@ -58,20 +59,20 @@
             border: 0px;
             background-color: white;
         }
-        
-        .search button img {
+        /* .search button img {
             width: auto;
             height: 23px;
             vertical-align: middle;
-        }
+        } */
         /* end search*/
         /* listfriend */
         
         .listFriend {
-            height: 590px;
+            height: 460px;
             width: 100%;
             border: 1px solid rgb(204, 204, 204);
             overflow: hidden;
+            /* background: white; */
         }
         
         .listFriend button {
@@ -83,6 +84,8 @@
             width: 100%;
             margin: 0px;
             text-align: left;
+            border: 1px solid rgb(204, 204, 204);
+            background-color: white;
         }
         
         .listFriend p {
@@ -95,7 +98,7 @@
         }
         
         .viewport2 {
-            height: 590px;
+            height: 450px;
             width: 100%;
             margin: 0px;
             box-shadow: 1px 1px 1px white;
@@ -120,7 +123,7 @@
         
         .center {
             width: 60%;
-            height: 770px;
+            height: 600px;
             background-color: white;
             float: left;
             border: 1px solid rgb(204, 204, 204);
@@ -140,7 +143,7 @@
         
         .conversation {
             position: relative;
-            height: 670px;
+            height: 550px;
             width: 100%;
             background-color: white;
             display: flex;
@@ -162,7 +165,7 @@
         }
         
         .viewport {
-            height: 660px;
+            height: 550px;
             width: 100%;
             margin: 2px 2px 2px 2px;
             box-shadow: 1px 1px 1px white;
@@ -232,9 +235,9 @@
             margin-left: 10px;
             margin-right: 30px;
             border-radius: 10px;
-            margin-top: 5px;
+            margin-top: 10px;
             margin-bottom: 5px;
-            border: 1px solid rgb(204, 204, 204);
+            border: 1px solid rgb(119, 110, 110);
         }
         
         .message input {
@@ -245,13 +248,17 @@
             border: 0px;
             font-size: 15px;
         }
+        
+        .btnSend {
+            border: 0px;
+        }
         /* end */
         /* end center*/
         /* right */
         
         .right {
             width: 20%;
-            height: 770px;
+            height: 600px;
             background-color: white;
             font-weight: bold;
             float: left;

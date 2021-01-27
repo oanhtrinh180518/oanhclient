@@ -1,7 +1,6 @@
 
 /* @import url(https://unpkg.com/bootstrap@4.1.0/dist/css/bootstrap.min.css) */
 body {
-  background-image: url("nen.jpg");
   position: center;
   text-align: center;
   height: 550px;
@@ -16,8 +15,7 @@ body {
   margin-bottom: 20px;
 
 }
-.all {
-}
+
 #name,
 #password {
   padding-top: 10px;
