@@ -103,12 +103,12 @@ export class HomePageComponent implements OnInit {
 
   postMessage(content: string) {
     this.dataService
-      .postSendMessage(content, this.conversationId)
+      .postSendMessage(content, this.idConversation)
       .subscribe((response) => {
         var code = response.status;
         if (code == 200) {
           this.getConversationContent(
-            this.conversationId, this.codeConversation,this.userId
+            this.idConversation, this.codeConversation,this.userId
            
           );
           this.getListFriend();
