@@ -31,6 +31,7 @@
           class="search1"
           #mySearch
           (click)="getConversationContent2(mySearch.value)"
+          [ngModel]=''
         >
           <option
             *ngFor="let u of listUser"

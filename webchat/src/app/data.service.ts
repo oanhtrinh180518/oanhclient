@@ -49,6 +49,13 @@ export class DataService {
       this.BASE_PATH + '/user/getContentConversation/' + idConversatioin
     );
   }
+  getContentConversationById(
+    userId: string
+  ): Observable<Array<Conversation>> {
+    return this.http.get<Array<Conversation>>(
+      this.BASE_PATH + '/user/getContentConversationByUserId/' + userId
+    );
+  }
   getSearchUser(text: string): Observable<Array<UserOnly>> {
     return this.http.get<Array<UserOnly>>(this.BASE_PATH + '/user/searchUser/' + text);
   }

@@ -28,6 +28,8 @@ export class HomePageComponent implements OnInit {
   content!: string;
   searchListFriend!: Conversation[];
   listUser!: UserOnly[];
+  user!:any;
+
   ngOnInit(): void {
     this.getListFriend();
 
@@ -63,14 +65,18 @@ export class HomePageComponent implements OnInit {
     this.content = content;
   }
 
-  getConversationContent2(idConversation: string) {
+  getConversationContent2(userId: string) {
     this.dataService
-      .getContentConversation(Number(idConversation))
+      .getContentConversationById(userId)
       .subscribe(
         (data: Array<Conversation>) => (this.currentConversation = data)
       );
-    this.conversationId = Number(idConversation);
-    this.codeConversation = this.currentConversation[0].codeConversation;
+    this.userId = this.currentConversation[0].codeConversation;
+
+    this.user=this.currentConversation.find(a =>a.userId==this.userId);
+    this.conversationId=this.user.conversationId;
+    this.codeConversation=this.user.codeConversation;
+    this.content=this.user.content;
   }
 
   postMessage(content: string) {
