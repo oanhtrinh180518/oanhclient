@@ -1,8 +1,11 @@
 <!--
   (keyup): bấm 1 phím
+  keydown.enter
 -->
 <html>
-  <head> </head>
+  <head>
+    <script src="home-page.component.js"></script>
+  </head>
 
   <body>
     <div class="left">
@@ -15,27 +18,29 @@
           </li>
         </ul>
       </div>
+
       <div class="search">
-        <!--<input
+        <input
           #myInput
           type=""
           placeholder="Tìm kiếm trên webchat"
-          (keydown.enter)="Search(myInput.value); (false); myInput.value = ''"
+          (keydown.enter)="getSearch(myInput.value); (false)"
         />
-        -->
-        <span>{{ "Danh sách bạn bè" }}</span>
-        <select class="search" #mySearch (click)="getConversationContent2(mySearch.value)">
-          <label>Danh sách bạn bè </label>
+        <br />
+        <select
+          class="search1"
+          #mySearch
+          (click)="getConversationContent2(mySearch.value)"
+        >
           <option
-            *ngFor="let u of listFriend"
-            (ngModel)="(u.codeConversation)"
-            [value]="u.conversationId"
-            [selected]="u.codeConversation"
+            *ngFor="let u of listUser"
+            (ngModel)="(u)"
+            [value]="u"
+            [selected]="u"
           >
-            {{ u.codeConversation }}
+            {{ u }}
           </option>
         </select>
-
       </div>
       <div class="listFriend">
         <cdk-virtual-scroll-viewport itemSize="70" class="viewport2">
@@ -72,7 +77,7 @@
         <div class="detailUser">
           <ul>
             <li>
-              <p class="namefriend" >{{ codeConversation }}</p>
+              <p class="namefriend">{{ codeConversation }}</p>
             </li>
             <!-- <li class="icon">
               <a href="">
@@ -114,6 +119,7 @@
           type="text"
           placeholder="Message"
           name="newMsg"
+          [ngModel]="newMsg"
           (keydown.enter)="postMessage(mess.value); (false); mess.value = ''"
         />
         <!--<button
@@ -134,13 +140,12 @@
         <a href="" class="infoUser">Quyền riêng tư và hỗ trợ</a><br />
         <a href="" class="infoUser">Tệp được chia sẻ</a><br />
         <a href="" class="infoUser">Ảnh đã chia sẻ</a><br />
+        <a href="" id="dangxuat" [routerLink]="['/login']">Đăng xuất</a><br />
       </div>
     </div>
   </body>
 </html>
 <!--
 
-  <div>
-    <button id="dangxuat" [routerLink]="['/login']">Đăng xuất</button>
-  </div>
+
 -->

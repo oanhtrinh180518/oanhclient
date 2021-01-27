@@ -6,6 +6,9 @@ export interface User {
   username: string;
   password: string;
 }
+export interface UserOnly {
+  user: string;
+}
 export interface Conversation {
   conversationId: Number;
   userId: string;
@@ -46,6 +49,9 @@ export class DataService {
       this.BASE_PATH + '/user/getContentConversation/' + idConversatioin
     );
   }
+  getSearchUser(text: string): Observable<Array<UserOnly>> {
+    return this.http.get<Array<UserOnly>>(this.BASE_PATH + '/user/searchUser/' + text);
+  }
   postSendMessage(content: string, conversationId: Number) {
     var params = new HttpParams()
       .set('content', content)
@@ -61,18 +67,16 @@ export class DataService {
     );
   }
 
-  getSearchUser(username: string): Observable<User> {
-    return this.http.get<User>(this.BASE_PATH + '/user/searchUser/' + username);
-  }
 
-  postCreateNewConversation(userId1: string, userId2: string) {
+
+  postCreateNewConversation(userId: string) {
     /*
     var params = new HttpParams()
       .set('userId1', userId1)
       .set('userId2', userId2);
       */
     return this.http.post<Response>(
-      this.BASE_PATH + '/createSingleConversation/'+userId1+'/'+userId2,
+      this.BASE_PATH + '/createSingleConversation/'+userId,
       {
         observe: 'response',
       }

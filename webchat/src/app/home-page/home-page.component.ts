@@ -1,5 +1,5 @@
 import { AuthService } from './../auth.service';
-import { DataService, Conversation, User } from './../data.service';
+import { DataService, Conversation, User, UserOnly } from './../data.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder } from '@angular/forms';
@@ -27,7 +27,7 @@ export class HomePageComponent implements OnInit {
   userId!: string;
   content!: string;
   searchListFriend!: Conversation[];
-  listUser!:User[];
+  listUser!: UserOnly[];
   ngOnInit(): void {
     this.getListFriend();
 
@@ -44,8 +44,6 @@ export class HomePageComponent implements OnInit {
     this.dataService
       .getFriendList(this.authService.getLoggedInUserName())
       .subscribe((data: Array<Conversation>) => (this.listFriend = data));
-    console.log('sontestFriend', this.listFriend);
-
   }
 
   getConversationContent(
@@ -64,17 +62,15 @@ export class HomePageComponent implements OnInit {
     this.userId = userId;
     this.content = content;
   }
-  getConversationContent2(
-    idConversation: string,
-  ) {
+
+  getConversationContent2(idConversation: string) {
     this.dataService
       .getContentConversation(Number(idConversation))
       .subscribe(
         (data: Array<Conversation>) => (this.currentConversation = data)
       );
-    this.conversationId =  Number(idConversation);
-    this.codeConversation=this.currentConversation[0].codeConversation;
-    console.log("conver-code",this.codeConversation);
+    this.conversationId = Number(idConversation);
+    this.codeConversation = this.currentConversation[0].codeConversation;
   }
 
   postMessage(content: string) {
@@ -89,25 +85,32 @@ export class HomePageComponent implements OnInit {
             this.userId,
             this.content
           );
+          this.getListFriend();
           this.ngOnInit();
         } else {
-          //this.getConversationContent(this.conversationId);
           alert('Send not ok');
         }
       });
   }
-  Search(res:string) {
-    this.searchListFriend = this.listFriend.filter((res) => {
-       res.codeConversation.toLocaleUpperCase().match(this.codeConversation.toLocaleLowerCase());
-      console.log('oanhcheck',this.searchListFriend);
-    });
-  }
+  // Search(res: string) {
+  //   this.searchListFriend = this.listFriend.filter((res) => {
+  //     res.codeConversation
+  //       .toLocaleUpperCase()
+  //       .match(this.codeConversation.toLocaleLowerCase());
+  //   });
+  // }
 
-  getListUser() {
+  // getListUser() {
+  //   this.dataService
+  //     .getUserList()
+  //     .subscribe((data: Array<User>) => (this.listUser = data));
+  // }
+  getSearch(textSearch: string) {
     this.dataService
-      .getUserList()
-      .subscribe((data: Array<User>) => (this.listUser = data));
-    console.log('sontestFriend', this.listUser);
+      .getSearchUser(textSearch)
+      .subscribe((data: Array<UserOnly>) => {
+        return (this.listUser = data);
+      });
 
   }
 }

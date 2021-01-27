@@ -1,299 +1,295 @@
-/* left */
-
-.left {
-    width: 20%;
-    height: 670px;
-    background-color: white;
-    float: left;
-}
-
-.up {
-    margin-left: 10px;
-}
-
-.logo {
-    height: 50px;
-    width: 50px;
-    background-color: rgb(128, 40, 40);
-    margin: 0px left;
-}
-
-
-/* Search */
-
-.search {
-    height: 60px;
-    width: 90%;
-    background-color: white;
-    margin-left: 10px;
-    margin-right: 30px;
-    margin-bottom: 10px;
-    border: 1px solid rgb(204, 204, 204);
-    border-radius: 10px;
-}
-
-.search .search {
-    width: 65%;
-    height: 25px;
-    margin-left: 7px;
-    border-radius: 10px;
-    border: 0px;
-    font-size: 15px;
-    text-align: center;
-}
-
-.search button {
-    height: 25px;
-    border: 0px;
-    background-color: white;
-}
-
-.search button img {
-    width: auto;
-    height: 23px;
-    vertical-align: middle;
-}
-
-
-/* end search*/
-
-
-/* listfriend */
-
-.listFriend {
-    height: 650px;
-    width: 100%;
-    border: 1px solid rgb(204, 204, 204);
-    overflow: hidden;
-}
-
-.listFriend button {
-    display: inline-block;
-}
-
-.btnListFriend {
-    height: 70px;
-    width: 100%;
-    margin: 0px;
-    text-align: left;
-}
-
-.listFriend p {
-    display: inline-block;
-}
-
-.code {
-    font-size: 25px;
-    margin: 0px;
-}
-
-.viewport2 {
-    height: 590px;
-    width: 100%;
-    margin: 0px;
-    box-shadow: 1px 1px 1px white;
-}
-
-.listFriend mat-card {
-    height: 70px;
-    margin: 0px;
-    padding: 0px;
-}
-
-
-/* end listfriend */
-
-.up ul {
-    list-style: none;
-}
-
-.up li {
-    background-color: white;
-}
-
-
-/* end left */
-
-
-/* center */
-
-.center {
-    width: 60%;
-    height: 770px;
-    background-color: white;
-    float: left;
-    border: 1px solid rgb(204, 204, 204);
-}
-
-.userName {
-    height: 45px;
-    width: 100%;
-    background-color: white;
-    border: 1px solid rgb(204, 204, 204);
-}
-
-.detailUser {
-    height: 40px;
-    margin-top: -10px;
-}
-
-.conversation {
-    position: relative;
-    height: 670px;
-    width: 100%;
-    background-color: white;
-    display: flex;
-    align-self: center;
-    margin: 0px;
-    padding: 0px;
-}
-
-.conversation li {
-    list-style: none;
-    padding: 0.5rem;
-    overflow: hidden;
-    display: flex;
-}
-
-.conversation mat-card {
-    height: 40px;
-    margin: 2px;
-}
-
-.viewport {
-    height: 660px;
-    width: 100%;
-    margin: 2px 2px 2px 2px;
-    box-shadow: 1px 1px 1px white;
-}
-
-.self {
-    justify-content: flex-end;
-    align-items: flex-end;
-}
-
-.other {
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.msg {
-    position: -webkit-sticky;
-    position: sticky;
-    bottom: 0px;
-    background: #eef8ff;
-    min-width: 50px;
-    padding: 10px;
-    border-radius: 20px;
-    word-break: break-all;
-}
-
-.self .msg {
-    border-bottom-right-radius: 0px;
-    box-shadow: 1px 2px 0px #c1cbcd;
-}
-
-.other .msg {
-    border-top-left-radius: 0px;
-    box-shadow: -1px 2px 0px #c1cbcd;
-    background: rgb(223, 216, 216);
-}
-
-
-/* userName */
-
-.detailUser ul {
-    list-style: none;
-}
-
-.detailUser ul li {
-    display: inline-block;
-    padding: 7px;
-}
-
-.detailUser ul li p {
-    font-size: 30px;
-    font-weight: bold;
-    color: black;
-}
-
-.detailUser ul li a img {
-    vertical-align: middle;
-}
-
-.namefriend {
-    padding-right: 440px;
-}
-
-
-/* message */
-
-.message {
-    height: 40px;
-    width: 90%;
-    background-color: white;
-    margin-left: 10px;
-    margin-right: 30px;
-    border-radius: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border: 1px solid rgb(204, 204, 204);
-}
-
-.message input {
-    width: 90%;
-    height: 25px;
-    margin-left: 7px;
-    border-radius: 10px;
-    border: 0px;
-    font-size: 15px;
-}
-
-
-/* end */
-
-
-/* end center*/
-
-
-/* right */
-
-.right {
-    width: 20%;
-    height: 770px;
-    background-color: white;
-    font-weight: bold;
-    float: left;
-    border: 1px solid rgb(204, 204, 204);
-    padding: 10px;
-}
-
-.infUserall a {
-    display: inline-block;
-}
-
-.nameUser {
-    text-align: center;
-    font-size: 30px;
-    text-decoration: none;
-    color: black;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-}
-
-.infUserall a {
-    display: inline-block;
-    padding: 10px;
-}
-
-.infoUser {
-    font-size: 20px;
-    text-decoration: none;
-    color: black;
-}
-
-
-/* html,
+        /* left */
+        
+        .left {
+            width: 20%;
+            height: 670px;
+            background-color: white;
+            float: left;
+        }
+        
+        .up {
+            margin-left: 10px;
+        }
+        
+        .logo {
+            height: 50px;
+            width: 50px;
+            background-color: rgb(128, 40, 40);
+            margin: 0px left;
+        }
+        /* Search */
+        
+        .search {
+            height: 100px;
+            width: 90%;
+            background-color: white;
+            margin-left: 10px;
+            margin-right: 30px;
+            margin-bottom: 10px;
+            border: 1px solid rgb(204, 204, 204);
+            border-radius: 10px;
+        }
+        
+        .search select {
+            display: inline-block;
+            border-radius: 10px;
+        }
+        
+        .search input {
+            display: inline-block;
+            width: 90%;
+            margin-left: 10px;
+            margin-top: 5px;
+            border-radius: 10px;
+        }
+        
+        .search .search1 {
+            width: 65%;
+            height: 25px;
+            margin-left: 10px;
+            border-radius: 10px;
+            border: 0px;
+            font-size: 15px;
+            text-align: center;
+        }
+        
+        .search button {
+            height: 25px;
+            border: 0px;
+            background-color: white;
+        }
+        
+        .search button img {
+            width: auto;
+            height: 23px;
+            vertical-align: middle;
+        }
+        /* end search*/
+        /* listfriend */
+        
+        .listFriend {
+            height: 590px;
+            width: 100%;
+            border: 1px solid rgb(204, 204, 204);
+            overflow: hidden;
+        }
+        
+        .listFriend button {
+            display: inline-block;
+        }
+        
+        .btnListFriend {
+            height: 70px;
+            width: 100%;
+            margin: 0px;
+            text-align: left;
+        }
+        
+        .listFriend p {
+            display: inline-block;
+        }
+        
+        .code {
+            font-size: 25px;
+            margin: 0px;
+        }
+        
+        .viewport2 {
+            height: 590px;
+            width: 100%;
+            margin: 0px;
+            box-shadow: 1px 1px 1px white;
+        }
+        
+        .listFriend mat-card {
+            height: 70px;
+            margin: 0px;
+            padding: 0px;
+        }
+        /* end listfriend */
+        
+        .up ul {
+            list-style: none;
+        }
+        
+        .up li {
+            background-color: white;
+        }
+        /* end left */
+        /* center */
+        
+        .center {
+            width: 60%;
+            height: 770px;
+            background-color: white;
+            float: left;
+            border: 1px solid rgb(204, 204, 204);
+        }
+        
+        .userName {
+            height: 45px;
+            width: 100%;
+            background-color: white;
+            border: 1px solid rgb(204, 204, 204);
+        }
+        
+        .detailUser {
+            height: 40px;
+            margin-top: -10px;
+        }
+        
+        .conversation {
+            position: relative;
+            height: 670px;
+            width: 100%;
+            background-color: white;
+            display: flex;
+            align-self: center;
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        .conversation li {
+            list-style: none;
+            padding: 0.5rem;
+            overflow: hidden;
+            display: flex;
+        }
+        
+        .conversation mat-card {
+            height: 40px;
+            margin: 2px;
+        }
+        
+        .viewport {
+            height: 660px;
+            width: 100%;
+            margin: 2px 2px 2px 2px;
+            box-shadow: 1px 1px 1px white;
+        }
+        
+        .self {
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+        
+        .other {
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+        
+        .msg {
+            position: -webkit-sticky;
+            position: sticky;
+            bottom: 0px;
+            background: #eef8ff;
+            min-width: 50px;
+            padding: 10px;
+            border-radius: 20px;
+            word-break: break-all;
+        }
+        
+        .self .msg {
+            border-bottom-right-radius: 0px;
+            box-shadow: 1px 2px 0px #c1cbcd;
+        }
+        
+        .other .msg {
+            border-top-left-radius: 0px;
+            box-shadow: -1px 2px 0px #c1cbcd;
+            background: rgb(223, 216, 216);
+        }
+        /* userName */
+        
+        .detailUser ul {
+            list-style: none;
+        }
+        
+        .detailUser ul li {
+            display: inline-block;
+            padding: 7px;
+        }
+        
+        .detailUser ul li p {
+            font-size: 30px;
+            font-weight: bold;
+            color: black;
+        }
+        
+        .detailUser ul li a img {
+            vertical-align: middle;
+        }
+        
+        .namefriend {
+            padding-right: 440px;
+        }
+        /* message */
+        
+        .message {
+            height: 40px;
+            width: 90%;
+            background-color: white;
+            margin-left: 10px;
+            margin-right: 30px;
+            border-radius: 10px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            border: 1px solid rgb(204, 204, 204);
+        }
+        
+        .message input {
+            width: 90%;
+            height: 25px;
+            margin-left: 7px;
+            border-radius: 10px;
+            border: 0px;
+            font-size: 15px;
+        }
+        /* end */
+        /* end center*/
+        /* right */
+        
+        .right {
+            width: 20%;
+            height: 770px;
+            background-color: white;
+            font-weight: bold;
+            float: left;
+            border: 1px solid rgb(204, 204, 204);
+            padding: 10px;
+        }
+        
+        .infUserall a {
+            display: inline-block;
+        }
+        
+        .nameUser {
+            text-align: center;
+            font-size: 30px;
+            text-decoration: none;
+            color: black;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .infUserall a {
+            display: inline-block;
+            padding: 10px;
+        }
+        
+        .infoUser {
+            font-size: 20px;
+            text-decoration: none;
+            color: black;
+        }
+        
+        #dangxuat {
+            text-align: center;
+            height: 50px;
+            width: 200px;
+            font-size: 20px;
+        }
+        /* html,
 body {
   height: 100%;
 }
@@ -338,8 +334,5 @@ div {
   margin-top: -350px;
   float: left;
 }
-#dangxuat {
-  text-align: center;
-  height: 50px;
-  width: 100px;
+
 } */
